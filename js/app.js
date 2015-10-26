@@ -51,6 +51,7 @@ function compare(s, g) {
 		lastDifference = currentDiff;
 		console.log("updated lastDifference: " + lastDifference)
 	}
+	console.log("lastdiff: " + lastDifference);
 	if (currentDiff > 50) {
 		if (lastDifference < currentDiff) {
 			result = "icecold and getting colder!"
@@ -94,6 +95,8 @@ function compare(s, g) {
 	} else {
 		result = "DING DING DING, you gussed it :)"
 	}
+
+	lastDifference = currentDiff;
 	$("#guessList").append($("<li/>").text(g + ': ' + result));
 	$("#count").text((parseInt($("#count").text()) + 1));
 }
@@ -102,6 +105,7 @@ function newGame() {
 	$("#guessList li").remove();
 	$("#count").text(0);
 	selection = numberSelector();
+	lastDifference = undefined;
 }
 
 //for the first diff, set the last diff to the currentDiff
